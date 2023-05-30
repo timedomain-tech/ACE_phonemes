@@ -1,4 +1,5 @@
-# ACE_phonemes
+# ACE_phonemes  
+[简体中文](docs/README_CN.md)
 
 ## Introduction
 
@@ -14,6 +15,6 @@ Here is a brief description of each file:
     - **jp_word2romaji**: Japanese Kana to Romaji dictionary
     - **plans**: each language has a plan. 
         - **syllable_alias** means each syllable can have multiple spellings. 
-        - **dict** contains G2P dictionary. 
+        - **dict** contains syllable to phoneme dictionary. 
         - **phon_class** contains all phonemes, **head** is consonant and **tail** is vowel
-- ***cmudict.rep***: This file contains English G2P dictionary, ref: http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+- ***cmudict.rep***: This file contains English pronouncing dictionary, ref: http://www.speech.cs.cmu.edu/cgi-bin/cmudict
