@@ -18,3 +18,13 @@ Here is a brief description of each file:
         - **dict** contains syllable to phoneme dictionary. 
         - **phon_class** contains all phonemes, **head** is consonant and **tail** is vowel
 - ***cmudict.rep***: This file contains English pronouncing dictionary, ref: http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+
+## Usage
+
+The `main.py` file contains basic use cases:
+1. Checking whether a phoneme is included in the system.
+2. Converting phonemes for Chinese, Japanese, and English.
+
+## Contributing
+
+Contributions and suggestions for modification are welcome. You can open an issue or send an email to sean.z@timedomain.ai.
