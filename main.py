@@ -3,6 +3,15 @@ import src.plan_reader as plan_reader
 import re
 
 
+def save_all_phoneme_to_md(path="phonemes.md"):
+    with open(path, "w") as f:
+        f.write("# Phonemes\n")
+        f.write("| 语言 Language | 辅音 Heads | 元音 Tails |\n| --- | --- | --- |\n")
+        for plan in [plan_reader.zh_plan, plan_reader.jp_plan, plan_reader.en_plan]:
+            f.write("| {} | {} | {} |\n".format(plan["language"], plan["phon_class"]["head"], plan["phon_class"]["tail"]))
+        f.write("\n\n")
+
+
 # phoneme validation 
 # language：zh jp eng
 def is_valid_phoneme(phoneme, language):
@@ -76,6 +85,8 @@ def eng_word_to_phoneme(en_word):
 
 
 if __name__ == "__main__":
+    save_all_phoneme_to_md()
+
     print(is_valid_phoneme("ah", "eng"))
 
     # pinyin_to_phoneme
