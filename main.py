@@ -59,9 +59,64 @@ def jp_word_to_phoneme(jp_word):
         return "word not found"
 
 
+def find_all_patterns(lst, target):
+    indices = []
+    n = len(target)
+    i = 0
+    while i <= len(lst) - n:
+        lst_slice = lst[i:i + n]
+        compare_slice = []
+        for phn in lst_slice:
+            if phn in plan_reader.en_plan["phon_class"]["tail"]:
+                compare_slice.append("vowel")
+            else:
+                compare_slice.append(phn)
+                
+        if lst[i:i + n] == target:
+            indices.append(i)
+            i += n  # Move i forward by n steps
+        else:
+            i += 1  # Move i forward by 1 step
+            
+    return indices
 
 
-# english word to phoneme
+def replace_elements(arr, start_idx, num_elements, sub_arr):
+    return arr[:start_idx] + sub_arr + arr[start_idx + num_elements:]
+
+
+def find_and_replace_all_patterns(lst, target, replacement):
+    indices = find_all_patterns(lst, target)
+    for idx in indices:
+        lst = replace_elements(lst, idx, len(target), replacement)
+    return lst
+
+# t r -> tr
+# d r -> dr
+
+# s t vowel --> s d vowel
+# s k vowel --> s g vowel
+# s p vowel --> s b vowel
+# s tr vowel --> s dr vowel
+def eng_phoneme_normalize(syllable):
+    phonemes = []
+    for i in range(len(syllable)):
+        phn = syllable[i].lower()
+        if re.search(r'\d$', phn):
+            phn = phn[:-1]
+        phonemes.append(phn)
+
+    phonemes = find_and_replace_all_patterns(phonemes, ['t', 'r'], ['tr'])
+    phonemes = find_and_replace_all_patterns(phonemes, ['d', 'r'], ['dr'])
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 't', 'vowel'], ['s', 'd', 'vowel'])
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'k', 'vowel'], ['s', 'g', 'vowel'])
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'p', 'vowel'], ['s', 'b', 'vowel'])
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'tr', 'vowel'], ['s', 'dr', 'vowel'])
+
+    return phonemes
+
+
+# english word to syllable and phoneme
 def eng_word_to_phoneme(en_word):
 
     eng_dict = cmudict_reader.get_dict()
@@ -71,15 +126,13 @@ def eng_word_to_phoneme(en_word):
     if word_key in eng_dict:
         syllables = eng_dict[word_key]
 
-        phonemes = []
+        syllables_normalized = []
         for phn_list in syllables:
-            for i in range(len(phn_list)):
-                phn = phn_list[i]
-                if re.search(r'\d$', phn):
-                    phn = phn[:-1]
-                phonemes.append(phn.lower())
+            phonemes = eng_phoneme_normalize(phn_list)
+            syllables_normalized.append(phonemes)
+            
 
-        return phonemes
+        return syllables_normalized
     else:
         return "word not found"
 
@@ -106,4 +159,5 @@ if __name__ == "__main__":
     # eng_word_to_phoneme
     print("==========================")
     print(eng_word_to_phoneme("yesterday"))
+    print(eng_word_to_phoneme("untrue"))
     print(eng_word_to_phoneme("sdasaf"))
