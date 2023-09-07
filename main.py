@@ -72,7 +72,7 @@ def find_all_patterns(lst, target):
             else:
                 compare_slice.append(phn)
                 
-        if lst[i:i + n] == target:
+        if compare_slice == target:
             indices.append(i)
             i += n  # Move i forward by n steps
         else:
@@ -85,11 +85,15 @@ def replace_elements(arr, start_idx, num_elements, sub_arr):
     return arr[:start_idx] + sub_arr + arr[start_idx + num_elements:]
 
 
-def find_and_replace_all_patterns(lst, target, replacement):
+def find_and_replace_all_patterns(lst, target, replacement, replace_partial=False):
     indices = find_all_patterns(lst, target)
     for idx in indices:
-        lst = replace_elements(lst, idx, len(target), replacement)
+        if replace_partial:
+            lst = replace_elements(lst, idx, len(replacement), replacement)
+        else:
+            lst = replace_elements(lst, idx, len(target), replacement)
     return lst
+
 
 # t r -> tr
 # d r -> dr
@@ -108,10 +112,11 @@ def eng_phoneme_normalize(syllable):
 
     phonemes = find_and_replace_all_patterns(phonemes, ['t', 'r'], ['tr'])
     phonemes = find_and_replace_all_patterns(phonemes, ['d', 'r'], ['dr'])
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 't', 'vowel'], ['s', 'd', 'vowel'])
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'k', 'vowel'], ['s', 'g', 'vowel'])
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'p', 'vowel'], ['s', 'b', 'vowel'])
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'tr', 'vowel'], ['s', 'dr', 'vowel'])
+    
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 't', 'vowel'], ['s', 'd'], True)
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'k', 'vowel'], ['s', 'g'], True)
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'p', 'vowel'], ['s', 'b'], True)
+    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'tr', 'vowel'], ['s', 'dr'], True)
 
     return phonemes
 
