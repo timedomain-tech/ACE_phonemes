@@ -28,4 +28,6 @@
 
 欢迎补充内容和讨论修改建议，可以提issue或者发邮件到 sean.z@timedomain.ai
 
+## 许可
 
+本项目采用 MIT 许可证授权 - 详情请查看 [LICENSE](LICENSE) 文件。

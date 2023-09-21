@@ -28,3 +28,7 @@ The `main.py` file contains basic use cases:
 ## Contributing
 
 Contributions and suggestions for modification are welcome. You can open an issue or send an email to sean.z@timedomain.ai.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
