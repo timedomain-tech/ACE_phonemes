@@ -1,9 +1,11 @@
 import pickle
 import os
 
+CMUDICT_PATH = '../resources/acecmudict.rep'
+
 current_file_path = os.path.dirname(__file__)
-CMU_DICT_PATH = os.path.join(current_file_path, '../resources/cmudict.rep')
-CACHE_PATH = os.path.join(current_file_path, '../resources/cmudict_cache.pickle')
+CMU_DICT_PATH = os.path.join(current_file_path, CMUDICT_PATH)
+CACHE_PATH = os.path.join(current_file_path, '../resources/dict_cache.pickle')
 
 
 def read_dict():

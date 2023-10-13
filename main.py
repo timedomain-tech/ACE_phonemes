@@ -110,13 +110,13 @@ def eng_phoneme_normalize(syllable):
             phn = phn[:-1]
         phonemes.append(phn)
 
-    phonemes = find_and_replace_all_patterns(phonemes, ['t', 'r'], ['tr'])
-    phonemes = find_and_replace_all_patterns(phonemes, ['d', 'r'], ['dr'])
+    # phonemes = find_and_replace_all_patterns(phonemes, ['t', 'r'], ['tr'])
+    # phonemes = find_and_replace_all_patterns(phonemes, ['d', 'r'], ['dr'])
     
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 't', 'vowel'], ['s', 'd'], True)
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'k', 'vowel'], ['s', 'g'], True)
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'p', 'vowel'], ['s', 'b'], True)
-    phonemes = find_and_replace_all_patterns(phonemes, ['s', 'tr', 'vowel'], ['s', 'dr'], True)
+    # phonemes = find_and_replace_all_patterns(phonemes, ['s', 't', 'vowel'], ['s', 'd'], True)
+    # phonemes = find_and_replace_all_patterns(phonemes, ['s', 'k', 'vowel'], ['s', 'g'], True)
+    # phonemes = find_and_replace_all_patterns(phonemes, ['s', 'p', 'vowel'], ['s', 'b'], True)
+    # phonemes = find_and_replace_all_patterns(phonemes, ['s', 'tr', 'vowel'], ['s', 'dr'], True)
 
     return phonemes
 
@@ -165,4 +165,5 @@ if __name__ == "__main__":
     print("==========================")
     print(eng_word_to_phoneme("yesterday"))
     print(eng_word_to_phoneme("untrue"))
-    print(eng_word_to_phoneme("sdasaf"))
+    print(eng_word_to_phoneme("arrested"))
+    print(eng_word_to_phoneme("favorite"))
