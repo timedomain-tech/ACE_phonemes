@@ -7,19 +7,17 @@ def save_all_phoneme_to_md(path="phonemes.md"):
     with open(path, "w") as f:
         f.write("# Phonemes\n")
         f.write("| 语言 Language | 辅音 Heads | 元音 Tails |\n| --- | --- | --- |\n")
-        for plan in [plan_reader.zh_plan, plan_reader.jp_plan, plan_reader.en_plan]:
+        for plan in plan_reader.all_plans:
             f.write("| {} | {} | {} |\n".format(plan["language"], plan["phon_class"]["head"], plan["phon_class"]["tail"]))
         f.write("\n\n")
 
 
 # phoneme validation 
-# language：zh jp eng
+# language：zh jp eng spa
 def is_valid_phoneme(phoneme, language):
 
-    assert language in ["zh", "jp", "eng"]
-
     all_phonemes = []
-    for plan in [plan_reader.zh_plan, plan_reader.jp_plan, plan_reader.en_plan]:
+    for plan in plan_reader.all_plans:
         if plan["language"] == language:
             all_phonemes.extend(plan["phon_class"]["head"])
             all_phonemes.extend(plan["phon_class"]["tail"])
@@ -146,6 +144,8 @@ if __name__ == "__main__":
     save_all_phoneme_to_md()
 
     print(is_valid_phoneme("ah", "eng"))
+    print(is_valid_phoneme("xxsl", "spa"))
+    print(is_valid_phoneme("ts", "jp"))
 
     # pinyin_to_phoneme
     print("==========================")

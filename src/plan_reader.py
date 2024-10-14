@@ -17,9 +17,16 @@ for plan in all_plan_dict["plans"]:
         zh_plan = plan
     elif plan["language"] == "jp":
         jp_plan = plan
-    else:
+    elif plan["language"] == "eng":
         en_plan = plan
+    elif plan["language"] == "spa":
+        spa_plan = plan
+    else:
+        raise ValueError("language not being set correctly")
 
 assert zh_plan is not None 
 assert jp_plan is not None 
 assert en_plan is not None 
+assert spa_plan is not None 
+
+all_plans = [zh_plan, jp_plan, en_plan, spa_plan]
