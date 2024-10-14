@@ -1,6 +1,9 @@
 # ACE_phonemes  
 [简体中文](docs/README_CN.md)
 
+# update
+spanish phonemes added
+
 ## Introduction
 
 We introduce our grapheme-to-phoneme (G2P) conversion dictionary and phoneme lists for the ACE SVS(singing voice synthesis) engine.
