@@ -19,13 +19,14 @@
         - **syllable_alias** 表示每个音节可以有多种拼写。
         - **dict** 包含音节到音素的字典。
         - **phon_class** 包含所有音素，**head** 表示辅音，**tail** 表示元音。
-- ***cmudict.rep***：该文件包含英语发音词典，参考网址：http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+- ***acecmudict.rep***：该文件包含英语发音词典，参考网址：http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+- ***es_final_dict_acesampa_with_seperator.txt***：西语发音词典
 
 ## G2P (Grapheme-to-Phoneme)
 - 汉语以及日语直接通过all_plan.json查表获得
 - 英语通过cmudict查表 + g2p模型预测获得
-- 西语通过g2p模型预测获得
-    - 训练数据基于IPA-Dict以及[CharsiuG2P Dict](https://github.com/lingjzhu/CharsiuG2P/tree/main/dicts)
+- 西语通过查表+g2p模型预测获得
+    - 数据基于IPA-Dict以及[CharsiuG2P Dict](https://github.com/lingjzhu/CharsiuG2P/tree/main/dicts)
     - 略微调整尽量符合墨西风格
     - 详细资料请看 /resource/references
 

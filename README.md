@@ -22,13 +22,14 @@ Here is a brief description of each file:
         - **dict** contains syllable to phoneme dictionary. 
         - **phon_class** contains all phonemes, **head** is consonant and **tail** is vowel
 - ***cmudict.rep***: This file contains English pronouncing dictionary, ref: http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+- ***es_final_dict_acesampa_with_seperator.txt***: Spanish pronouncing dictionary
 
 ## G2P (Grapheme-to-Phoneme)
 
 - **Chinese and Japanese:** Phonemes are directly retrieved from the `all_plan.json` lookup table.
 - **English:** Phonemes are obtained using a combination of the CMUDict lookup table and G2P model predictions.
-- **Spanish:** Phonemes are predicted using a G2P model.  
-    - Training data is based on IPA-Dict and [CharsiuG2P Dict](https://github.com/lingjzhu/CharsiuG2P/tree/main/dicts).  
+- **Spanish:** Phonemes are predicted using a combination of the lookup table and G2P model.  
+    - Data is based on IPA-Dict and [CharsiuG2P Dict](https://github.com/lingjzhu/CharsiuG2P/tree/main/dicts).  
     - Minor adjustments have been made to better align with Mexican Spanish pronunciation.  
     - For detailed information, refer to `/resource/references`.
 
