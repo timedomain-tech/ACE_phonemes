@@ -1,0 +1,93 @@
+# G2P Pronunciation Dictionaries and Lexicons
+
+A curated list of resources for pronunciation dictionaries, lexicons, and phonetic data across various languages.
+
+## Table of Contents
+
+1. [CC-CEDICT](#cc-cedict)
+2. [IPA-Dict](#ipa-dict)
+3. [Wiktionary](#wiktionary)
+4. [PHOIBLE 2.0](#phoible-20)
+5. [Chinese Dialect Lexicons](#chinese-dialect-lexicons)
+6. [Danish Pronunciation Dictionary](#danish-pronunciation-dictionary)
+7. [English Pronunciation Dictionary](#english-pronunciation-dictionary)
+8. [Swedish Pronunciation Dictionary](#swedish-pronunciation-dictionary)
+9. [Spanish Pronunciation Dictionary](#spanish-pronunciation-dictionary)
+10. [Wikipron](#wikipron)
+
+---
+
+## CC-CEDICT
+
+- **Website**: [cc-cedict.org](https://cc-cedict.org/wiki/)
+- **Description**: An open-source Chinese-English dictionary providing translations from Chinese (Mainland and Taiwan), Japanese, and Korean to English. Also includes Chinese to German and French translations.
+
+---
+
+## IPA-Dict
+
+- **Repository**: [GitHub - open-dict-data/ipa-dict](https://github.com/open-dict-data/ipa-dict)
+- **Languages**: 29
+- **Description**: A collection of pronunciation dictionaries with IPA transcriptions for multiple languages.
+
+---
+
+## Wiktionary
+
+- **Website**: [Wiktionary IPA Pronunciations](https://en.wiktionary.org/wiki/Category:Terms_with_IPA_pronunciation_by_language)
+- **Description**: A comprehensive resource for language spelling and pronunciation, providing IPA pronunciations for terms across all languages.
+
+---
+
+## PHOIBLE 2.0
+
+- **Website**: [phoible.org](https://phoible.org/)
+- **Languages**: 3,020
+- **Description**: A database of phonological inventories from languages around the world, totaling over 3,000 languages.
+
+---
+
+## Chinese Dialect Lexicons
+
+- **Repository**: [GitHub - CjangCjengh/chinese-dialect-lexicons](https://github.com/CjangCjengh/chinese-dialect-lexicons)
+- - **Dialects**: 26
+- **Description**: A collection of lexicons for various Chinese dialects, providing valuable resources for dialectal studies.
+
+---
+
+## Danish Pronunciation Dictionary
+
+- **Website**: [OpenSLR - Resource #8](https://www.openslr.org/8/)
+- **Description**: A pronunciation dictionary for Danish, generated using eSpeak. Useful for speech recognition and synthesis applications.
+
+---
+
+## English Pronunciation Dictionary
+
+- **Website**: [OpenSLR - Resource #14](https://www.openslr.org/14/)
+- **Description**: A British English pronunciation dictionary, suitable for speech processing tasks and linguistic research.
+
+---
+
+## Swedish Pronunciation Dictionary
+
+- **Website**: [OpenSLR - Resource #29](https://www.openslr.org/29/)
+- **Description**: A pronunciation dictionary for Swedish, useful for various applications in speech technology.
+
+---
+
+## Spanish Pronunciation Dictionary
+
+- **Website**: [OpenSLR - Resource #34](https://www.openslr.org/34/)
+- **Description**: A pronunciation dictionary for Spanish, aiding in speech recognition and synthesis.
+
+---
+
+## Wikipron
+
+- **Repository**: [GitHub - CUNY-CL/wikipron](https://github.com/CUNY-CL/wikipron/tree/master/data/scrape/tsv)
+- **Description**: A large collection of pronunciations scraped from Wiktionary, covering a wide range of languages with IPA transcriptions.
+
+---
+
+Feel free to explore these resources for your linguistic, computational, or educational projects!

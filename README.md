@@ -1,8 +1,9 @@
 # ACE_phonemes  
 [简体中文](docs/README_CN.md)
 
-# update
-spanish phonemes added
+## updates
+- spanish phonemes added
+
 
 ## Introduction
 

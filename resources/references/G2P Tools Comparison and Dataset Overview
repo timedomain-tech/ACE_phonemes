@@ -1,0 +1,232 @@
+# G2P Tools Comparison and Dataset Overview
+
+This file provides a comprehensive overview of various Grapheme-to-Phoneme (G2P) conversion tools and their performance metrics. It also includes references to associated datasets, codebases, and evaluations to assist researchers and developers in choosing the appropriate G2P solution.
+
+---
+
+## Contents
+
+- [Datasets and Tools](#datasets-and-tools)
+- [Performance Metrics](#performance-metrics)
+- [Tool Highlights](#tool-highlights)
+- [References](#references)
+
+---
+
+## Datasets and Tools
+
+| **Tool/Method**           | **Description**                                                                                      | **Language Support**                         | **Source**                                                                                                                                      |
+|---------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Epitran G2P**           | G2P dictionary-based approach. Requires CC-CEDict for Chinese and CMU Flite for English.             | 61 Languages                                 | [Paper](https://aclanthology.org/L18-1429.pdf), [GitHub](https://github.com/dmort27/epitran)                                                    |
+| **CharsiuG2P**            | Transformer-based G2P model with fine-grained performance metrics.                                   | 100 Languages                                | [Paper](https://arxiv.org/pdf/2204.03067), [GitHub](https://github.com/lingjzhu/CharsiuG2P)                                                     |
+| **DeepPhonemizer**        | Transformer-based model for G2P, high performance for major languages.                               | English, German, French, Spanish             | [Paper](https://arxiv.org/pdf/2004.06338), [GitHub](https://github.com/as-ideas/DeepPhonemizer)                                                 |
+| **eSpeak NG TTS**         | Open-source TTS engine supporting G2P.                                                              | 127 Languages                                | [GitHub](https://github.com/espeak-ng/espeak-ng)                                                                                                |
+| **ByT5**                  | General-purpose text-to-text model fine-tuned for G2P tasks.                                         | 21 Languages                                 | [Paper](https://arxiv.org/pdf/2105.13626), [GitHub](https://github.com/google-research/byt5)                                                    |
+| **MG2P**                  | Multilingual G2P model.                                                                              | 85/229/311 Languages                         | [Paper](https://arxiv.org/pdf/1708.01464), [GitHub](https://github.com/bpopeters/mg2p)                                                          |
+| **T5G2P**                 | G2P model based on T5 architecture.                                                                  | English, Czech, Russian, German              | [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10592637)                                                                      |
+| **G2PE**                  | G2P model for English, uses CMUDict.                                                                 | English                                      | [Paper](https://arxiv.org/pdf/1811.09364), [GitHub](https://github.com/Kyubyong/g2p)                                                            |
+| **KoG2P**                 | G2P conversion tool designed for Korean.                                                             | Korean                                       | [GitHub](https://github.com/scarletcho/KoG2P)                                                                                                   |
+| **Transphone**            | Cross-lingual G2P leveraging multilingual resources.                                                 | 7,546 Languages                              | [Paper](https://aclanthology.org/2022.findings-acl.166.pdf), [GitHub](https://github.com/xinjli/transphone)                                     |
+| **WikiPron**              | Extracts phoneme data from Wiktionary, useful for low-resource languages.                            | 165 Languages                                | [Paper](https://aclanthology.org/2020.lrec-1.521v2.pdf), [GitHub](https://github.com/kylebgorman/wikipron), [Modeling](https://github.com/CUNY-CL/wikipron-modeling) |
+| **G2P (Ajini)**           | G2P model supporting multiple languages including English, Polish, Russian.                          | English, Polish, Russian                     | [GitHub](https://github.com/mohamad-hasan-sohan-ajini/G2P)                                                                                      |
+| **NeMo G2P**              | NVIDIA's G2P tool without the need for a dictionary.                                                 | Chinese, English, Spanish, German            | [Documentation](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/tts/g2p.html#)                                              |
+| **Phonetisaurus**         | Statistical G2P model based on WFST (Weighted Finite-State Transducer).                              | English                                      | [GitHub](https://github.com/AdolfVonKleist/Phonetisaurus)                                                                                       |
+| **G2PM**                  | G2P model for Chinese with improved performance.                                                     | Chinese                                      | [GitHub](https://github.com/kakaobrain/g2pm)                                                                                                    |
+| **G2PC**                  | G2P conversion tool for Chinese.                                                                     | Chinese                                      | [GitHub](https://github.com/Kyubyong/g2pC)                                                                                                      |
+| **Python-pinyin**         | Python library for converting Chinese characters to Pinyin.                                          | Chinese                                      | [GitHub](https://github.com/mozillazg/python-pinyin)                                                                                            |
+| **xpinyin**               | Another Python library for Chinese to Pinyin conversion.                                             | Chinese                                      | [GitHub](https://github.com/lxneng/xpinyin)                                                                                                     |
+| **g2p_seq2seq_pytorch**   | G2P model based on seq2seq with attention mechanism.                                                | English                                      | [GitHub](https://github.com/CiscoDevNet/g2p_seq2seq_pytorch)                                                                                    |
+| **CMU Sphinx g2p-seq2seq**| G2P model from CMU Sphinx project.                                                                   | English                                      | [GitHub](https://github.com/cmusphinx/g2p-seq2seq)                                                                                              |
+
+---
+
+## Performance Metrics
+
+### **Epitran G2P**
+
+- **Languages Supported**: 61
+- **Performance**: Accuracy of 61%
+- **Notes**:
+  - Used the G2P dictionary (lexicon file) provided as part of the dataset for each language.
+  - **Requirements**:
+    1. Chinese needs CC-CEDict.
+    2. English needs CMU Flite system.
+    3. Some languages naively assume a phonemic orthography.
+
+### **CharsiuG2P**
+
+- **Languages Supported**: 100
+- **Performance Metrics**:
+  - **PER** (Phoneme Error Rate) and **WER** (Word Error Rate):
+    - **tiny_8**: PER 10.7%, WER 31.4%
+    - **tiny_12**: PER 9.8%, WER 28.7%
+    - **tiny_16**: PER 9.6%, WER 28.1%
+    - **Small**: PER 8.9%, WER 26.1%
+- **Notes**:
+  - Detailed performance metrics are available in the [GitHub repository](https://github.com/lingjzhu/CharsiuG2P#g2p-datasets).
+
+### **DeepPhonemizer (Transformer-based G2P)**
+
+- **Languages Supported**: English, German, French, Spanish
+- **Datasets**: NetTalk, CMUDict
+- **Performance Metrics**:
+  - **NetTalk**:
+    - PER: 6.87%
+    - WER: 29.82%
+  - **CMUDict**:
+    - PER: 5.23%
+    - WER: 22.1%
+- **Notes**:
+  - High performance on standard datasets.
+
+### **eSpeak NG TTS**
+
+- **Languages Supported**: 127
+- **Notes**:
+  - Open-source TTS engine supporting G2P conversion.
+
+### **ByT5**
+
+- **Languages Supported**: 21 (as mentioned in the thesis)
+- **Based on**: [T5](https://pypi.org/project/t5/)
+- **Performance Metrics**:
+  - **CER** (Character Error Rate), **WER**, **PER**, **Accuracy**:
+    - **Small**: CER 9.8%, WER 14.8%, PER 1.8%, Accuracy 88.3%
+    - **Base**: CER 9.9%, WER 14%, PER 1.7%, Accuracy 89.3%
+    - **Large**: CER 10.6%, WER 14.7%, PER 1.8%, Accuracy 89.7%
+    - **XL**: CER 10.6%, WER 14.7%, PER 1.8%, Accuracy 89.9%
+    - **XXL**: CER 9.6%, WER 13.8%, PER 1.6%, Accuracy 90.9%
+- **Notes**:
+  - General-purpose text-to-text model fine-tuned for G2P tasks.
+
+### **MG2P**
+
+- **Languages Supported**: 85/229/311
+- **Performance Metrics**:
+  - **WER**: 74.1%
+  - **WER100**: 43.23%
+  - **PER**: 37.85%
+- **Notes**:
+  - Effective in multilingual settings.
+
+### **T5G2P**
+
+- **Languages Supported**: English, Czech, Russian, German
+- **Performance Metrics**:
+  - **Word Accuracy**, **Phoneme Accuracy**:
+    - **English (EN)**: Word Acc 95.7%, Phon Acc 97.2%
+    - **Czech (CZ)**: Word Acc 99.99%, Phon Acc 99.99%
+    - **Russian (RU)**: Word Acc 86.7%, Phon Acc 96.1%
+    - **German (GE)**: Word Acc 97.2%, Phon Acc 99.1%
+
+### **G2PE**
+
+- **Languages Supported**: English
+- **Dataset**: CMUDict
+- **Notes**:
+  - G2P model for English.
+  - Also see **KoG2P** for Korean language support.
+
+### **Transphone**
+
+- **Languages Supported**: 7,546
+- **Performance Metrics**:
+  - Detailed performance metrics are available in the [performance README](https://github.com/xinjli/transphone/blob/main/doc/performance/README.md).
+
+### **WikiPron**
+
+- **Languages Supported**: 165
+- **Data Source**: Extracted from Wiktionary
+- **Performance Metrics**:
+  - **WER**, **PER**:
+    - **English (EN)**: WER 48.2%, PER 13.0%
+    - **French (FR)**: WER 6.0%, PER 1.2%
+    - **Hindi (HI)**: WER 9.0%, PER 2.0%
+    - **Japanese (JP)**: WER 10.2%, PER 3.0%
+    - **Korean (KR)**: WER 28.8%, PER 6.2%
+- **Notes**:
+  - No Chinese language support.
+  - Useful for low-resource languages.
+
+### **G2P (Ajini)**
+
+- **Languages Supported**: English, Polish, Russian
+- **Notes**:
+  - G2P model supporting multiple languages.
+
+### **KoG2P**
+
+- **Languages Supported**: Korean
+- **Notes**:
+  - G2P conversion tool specifically designed for Korean.
+
+### **NeMo G2P**
+
+- **Languages Supported**: Chinese, English, Spanish, German
+- **Notes**:
+  - NVIDIA's G2P tool without the need for a dictionary.
+
+### **Phonetisaurus**
+
+- **Languages Supported**: English
+- **Notes**:
+  - Statistical G2P model based on Weighted Finite-State Transducers (WFST).
+
+### **G2PM, G2PC, Python-pinyin, xpinyin**
+
+- **Languages Supported**: Chinese
+- **Notes**:
+  - Various tools for Chinese G2P conversion:
+    - **G2PM** ([GitHub](https://github.com/kakaobrain/g2pm)): Enhanced performance.
+    - **G2PC** ([GitHub](https://github.com/Kyubyong/g2pC)): G2P conversion tool.
+    - **Python-pinyin** ([GitHub](https://github.com/mozillazg/python-pinyin)): Converts Chinese characters to Pinyin.
+    - **xpinyin** ([GitHub](https://github.com/lxneng/xpinyin)): Another library for Chinese to Pinyin conversion.
+
+### **g2p_seq2seq_pytorch and CMU Sphinx g2p-seq2seq**
+
+- **Languages Supported**: English
+- **Dataset**: CMUDict
+- **Performance Metrics**:
+  - **g2p_seq2seq_pytorch**:
+    - **PER**: 5.26%
+    - **WER**: 23.8%
+    - **CPU Latency**: 13.76 ms
+  - **CMU Sphinx g2p-seq2seq**:
+    - **PER**: 4.16%
+    - **WER**: 19.91%
+    - **CPU Latency**: 10.19 ms
+    - **GPU Latency**: 5.41 ms
+- **Notes**:
+  - Based on sequence-to-sequence modeling with attention mechanisms.
+
+---
+
+## References
+
+- **Epitran G2P**: [Paper](https://aclanthology.org/L18-1429.pdf), [GitHub](https://github.com/dmort27/epitran)
+- **CharsiuG2P**: [Paper](https://arxiv.org/pdf/2204.03067), [GitHub](https://github.com/lingjzhu/CharsiuG2P)
+- **DeepPhonemizer**: [Paper](https://arxiv.org/pdf/2004.06338), [GitHub](https://github.com/as-ideas/DeepPhonemizer)
+- **eSpeak NG TTS**: [GitHub](https://github.com/espeak-ng/espeak-ng)
+- **ByT5**: [Paper](https://arxiv.org/pdf/2105.13626), [GitHub](https://github.com/google-research/byt5)
+- **MG2P**: [Paper](https://arxiv.org/pdf/1708.01464), [GitHub](https://github.com/bpopeters/mg2p)
+- **T5G2P**: [Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10592637)
+- **G2PE**: [Paper](https://arxiv.org/pdf/1811.09364), [GitHub](https://github.com/Kyubyong/g2p)
+- **KoG2P**: [GitHub](https://github.com/scarletcho/KoG2P)
+- **Transphone**: [Paper](https://aclanthology.org/2022.findings-acl.166.pdf), [GitHub](https://github.com/xinjli/transphone)
+- **WikiPron**:
+  - [Paper](https://aclanthology.org/2020.lrec-1.521v2.pdf)
+  - [GitHub](https://github.com/kylebgorman/wikipron)
+  - [Modeling Repository](https://github.com/CUNY-CL/wikipron-modeling)
+- **G2P (Ajini)**: [GitHub](https://github.com/mohamad-hasan-sohan-ajini/G2P)
+- **NeMo G2P**: [Documentation](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/tts/g2p.html#)
+- **Phonetisaurus**: [GitHub](https://github.com/AdolfVonKleist/Phonetisaurus)
+- **G2PM**: [GitHub](https://github.com/kakaobrain/g2pm)
+- **G2PC**: [GitHub](https://github.com/Kyubyong/g2pC)
+- **Python-pinyin**: [GitHub](https://github.com/mozillazg/python-pinyin)
+- **xpinyin**: [GitHub](https://github.com/lxneng/xpinyin)
+- **g2p_seq2seq_pytorch**: [GitHub](https://github.com/CiscoDevNet/g2p_seq2seq_pytorch)
+- **CMU Sphinx g2p-seq2seq**: [GitHub](https://github.com/cmusphinx/g2p-seq2seq)
+
+---
+
+This README provides a structured and accessible guide for navigating various G2P tools and datasets. Contributions and suggestions are welcome!
