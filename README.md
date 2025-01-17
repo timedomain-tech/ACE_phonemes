@@ -24,6 +24,12 @@ Here is a brief description of each file:
 - ***cmudict.rep***: This file contains English pronouncing dictionary, ref: http://www.speech.cs.cmu.edu/cgi-bin/cmudict
 - ***es_final_dict_acesampa_with_seperator.txt***: Spanish pronouncing dictionary
 
+## Phonemes mapping
+we also provides a comprehensive phoneme mapping table to help you better understand the phonemes of ACE Studio.
+
+- [Phoneme Mapping](phoneme_mapping.md)
+
+
 ## G2P (Grapheme-to-Phoneme)
 
 - **Chinese and Japanese:** Phonemes are directly retrieved from the `all_plan.json` lookup table.
@@ -41,7 +47,7 @@ The `main.py` file contains basic use cases:
 
 ## Contributing
 
-Contributions and suggestions for modification are welcome. You can open an issue or send an email to sean.z@timedomain.ai.
+Contributions and suggestions for modification are welcome. You can open an issue or send an email to sean@acestudio.ai.
 
 ## License
 
